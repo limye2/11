@@ -6,25 +6,18 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, const char * argv[]) {
-    int i;
-    int grade[5];
-    int sum=0;
+    int i=100;
+    int *p = &i;
+    int **q = &p;
     
-    for(i=0;i<5;i++)
-    {
-        printf("grade[%i] = ", i);
-        scanf("%d", &grade[i]);
-    }
+    *p = 200;
+    printf("i=%i, *p = %d, **q = %d\n", i, *p, **q);
     
-    for(i=0; i<5; i++)
-    {
-        printf("grade[%i] - %i\n", i, *(grade+i));
-        sum = sum + *(grade+i);
-    }
-    
-    printf("Average : %i\n", sum/5);
+    **q = 300;
+    printf("i = %i, *p = %d, **q = %d\n", i, *p, **q);
     
     return 0;
 }
